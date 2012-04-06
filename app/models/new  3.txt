@@ -1,0 +1,40 @@
+USE [UC_DMS]
+GO
+
+/****** Object:  Table [dbo].[ctbl.GLAccount.Seg3]    Script Date: 04/03/2012 12:13:14 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ctbl.GLAccount.Seg3](
+	[GLAccount_Seg3_ID] [int] IDENTITY(1,1) NOT NULL,
+	[GLAccountCode_Seg3] [varchar](50) NOT NULL,
+	[GLAccountName_Seg3] [varchar](50) NOT NULL,
+	[Inactive] [tinyint] NOT NULL,
+ CONSTRAINT [PK_ctbl.GLAccount.Seg3] PRIMARY KEY CLUSTERED 
+(
+	[GLAccount_Seg3_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_ctbl.GLAccount.Seg3] UNIQUE NONCLUSTERED 
+(
+	[GLAccountCode_Seg3] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[ctbl.GLAccount.Seg3] ADD  CONSTRAINT [DF_ctbl.GLAccount.Seg3_GLAccountName_Seg3]  DEFAULT ('') FOR [GLAccountName_Seg3]
+GO
+
+ALTER TABLE [dbo].[ctbl.GLAccount.Seg3] ADD  CONSTRAINT [DF_ctbl.GLAccount.Seg3_Inactive]  DEFAULT (0) FOR [Inactive]
+GO
+
+
